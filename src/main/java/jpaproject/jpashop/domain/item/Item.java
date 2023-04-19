@@ -2,6 +2,7 @@ package jpaproject.jpashop.domain.item;
 
 import jpaproject.jpashop.domain.Category;
 import jpaproject.jpashop.exception.NotEnoughStockException;
+import jpaproject.jpashop.repository.ItemRepository;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -38,6 +39,13 @@ public abstract class Item {
             throw new NotEnoughStockException("need more stock");
         }
         this.stockQuantity = restStock;
+    }
+
+    public void updateItem(Long itemId,String name, int price,int stockQuantity){
+        this.id = itemId;
+        this.name = name;
+        this.price = price;
+        this.stockQuantity = stockQuantity;
     }
 
 }
